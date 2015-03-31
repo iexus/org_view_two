@@ -1,8 +1,15 @@
 class EmployeeFileParser
 
   def parse_employees file_name
-    contents = File.read(file_name)
-    parse_lines contents
+    begin
+      contents = File.read(file_name)
+      parse_lines contents
+    rescue Errno::ENOENT
+      puts "There was a problem finding the file: #{file_name} please make sure it exists."
+    rescue ParseError => pe
+      puts "There was an error parsing the file. Please ensure the format is correct."
+      puts pe.message
+    end
   end
 
   private
@@ -31,5 +38,5 @@ class EmployeeFileParser
   end
 end
 
-#class ParseError < StandardError
-#end
+class ParseError < StandardError
+end

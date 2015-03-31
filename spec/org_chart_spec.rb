@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'services/route_planner'
 require 'services/org_hierarchy'
 
 describe OrgChart do
