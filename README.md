@@ -5,4 +5,4 @@ The route can only travel up and down via boss links.
 
 #To run this solution:
 
-ruby start.rn <file_name> <emp1> <emp2>
+ruby start.rb file_name emp1 emp2
